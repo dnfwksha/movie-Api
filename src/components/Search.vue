@@ -13,9 +13,14 @@
           :key="filter.name"
           class="form-select">
         <option
-        v-for="item in filter.items"
-        :key="item">
-          {{item}}
+            v-if="filter.name==='year'"
+            value="">
+          All Years
+        </option>
+        <option
+            v-for="item in filter.items"
+            :key="item">
+          {{ item }}
         </option>
       </select>
     </div>
@@ -29,7 +34,7 @@ export default {
       title: '',
       type: 'movie',
       number: 10,
-      year: 'All Years',
+      year: '',
       filters: [
         {
           name: 'type',
@@ -41,7 +46,7 @@ export default {
         },
         {
           name: 'year',
-          items: ( ()=> {
+          items: (() => {
             const years = []
             const thisYear = new Date().getFullYear()
             for (let i = thisYear; i > 1985; i -= 1) {
@@ -71,12 +76,12 @@ export default {
 
   .selects {
     display: flex;
-    margin-right: 10px;
 
 
     select {
       width: 120px;
       margin-right: 10px;
+
       &:last-child {
         margin-right: 0;
       }
