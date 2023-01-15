@@ -4,7 +4,8 @@
         class="form-control"
         v-model="title"
         type="text"
-        placeholder="Search for Movies, Series & more"/>
+        placeholder="Search for Movies, Series & more"
+        @keyup.enter="apply"/>
 
     <div class="selects">
       <select
@@ -24,10 +25,16 @@
         </option>
       </select>
     </div>
+    <button
+        class="btn btn-primary"
+        @click="apply">
+      Apply
+    </button>
   </div>
 </template>
 
 <script>
+
 export default {
   data() {
     return {
@@ -57,6 +64,12 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    apply() {
+      //영화 찾기
+
+    }
   }
 }
 </script>
@@ -86,6 +99,12 @@ export default {
         margin-right: 0;
       }
     }
+  }
+  .btn {
+    width: 120px;
+    height: 50px;
+    font-weight: 700;
+    flex-shrink: 0;
   }
 }
 </style>
