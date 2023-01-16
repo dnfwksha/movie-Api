@@ -6,11 +6,7 @@
 </RouterLink>
 </template>
 
-<script>
-export default {
-  name: "Logo"
-}
-</script>
+<script></script>
 
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
