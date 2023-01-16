@@ -1,25 +1,27 @@
 <template>
-<RouterLink
-    to="/"
-    class="logo">
-  <span>OMDbAPI</span>.COM
-</RouterLink>
+  <RouterLink
+      to="/"
+      class="logo">
+    <span>OMDbAPI</span>.COM
+  </RouterLink>
 </template>
 
-<script></script>
 
 <style lang="scss" scoped>
 @import "@/scss/main.scss";
+
 .logo {
   font-family: "Oswald", sans-serif;
   font-size: 20px;
   color: $black;
   text-decoration: none;
-  &:hover{
-    color:$black
+
+  &:hover {
+    color: $black
   }
-  span{
-    color:$primary
+
+  span {
+    color: $primary
   }
 }
 </style>
