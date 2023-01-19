@@ -182,7 +182,7 @@ export default {
 
       span {
         &::after {
-          content: "\oob7";
+          content: "\00b7";
           margin: 0 6px;
         }
 
