@@ -88,6 +88,7 @@ export default {
 
             try {
                 const res = await _fetchMovie(payload)
+                console.log(res)
                 commit('updateState', {
                     theMovie: res.data
                 })
