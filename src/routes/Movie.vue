@@ -53,7 +53,7 @@
           </div>
         </div>
         <div>
-          <h3>Actorsaa</h3>
+          <h3>Actors</h3>
           {{ theMovie.Actors }}
         </div>
         <div>
