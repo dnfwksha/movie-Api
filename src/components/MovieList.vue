@@ -24,8 +24,10 @@
 <script>
 import MovieItem from "@/components/MovieItem.vue";
 import Loader from "@/components/Loader.vue";
+import _uniqBy from "lodash/uniqBy";
 
 export default {
+  methods: {_uniqBy},
   components: {
     MovieItem,
     Loader

@@ -21,8 +21,12 @@
         v-else
         class="movie-details">
       <div
-          :style="{backgroundImage: `url(${theMovie.Poster})`}"
-          class="poster"></div>
+          :style="{backgroundImage: `url(${requestDiffSizeImage(theMovie.Poster)})`}"
+          class="poster">
+        <Loader
+            v-if="imageLoading"
+            absolute/>
+      </div>
       <div class="specs">
         <div class="title">
           {{ theMovie.Title }}
@@ -44,10 +48,10 @@
                 :title="name"
                 class="rating">
 
-
-              <img
-                  :src="`src/assets/${name}.png`"
-                  :alt="name"/>
+              <img src="`https://raw.githubusercontent.com/dnfwksha/movie-Api/master/src/assets/${name}.png`" alt="">
+              <!--              <img-->
+              <!--                  :src="`src/assets/${name}.png`"-->
+              <!--                  :alt="name"/>-->
               <span>{{ score }}</span>
             </div>
           </div>
@@ -81,6 +85,11 @@ export default {
   components: {
     Loader
   },
+  data() {
+    return {
+      imgaeLoading: true
+    }
+  },
   computed: {
     theMovie() {
       return this.$store.state.movie.theMovie
@@ -95,6 +104,20 @@ export default {
       // movie/tt123762
       id: this.$route.params.id
     })
+  },
+  methods: {
+    requestDiffSizeImage(url, size = 700) {
+      if (!url || url === 'N/A') {
+        this.imgaeLoading = false
+        return ''
+      }
+      const src = url.replace('SX300', `SX${size}`)
+      this.$loadImage(src)
+          .then(() => {
+            this.imgaeLoading = false
+          })
+      return src
+    }
   }
 }
 </script>
@@ -164,6 +187,7 @@ export default {
     background-color: $gray-200;
     background-size: cover;
     background-position: center;
+    position: relative;
   }
 
   .specs {
